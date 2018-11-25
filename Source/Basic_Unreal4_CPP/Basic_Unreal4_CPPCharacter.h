@@ -29,6 +29,12 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
 	float BaseLookUpRate;
 
+	// The variable containing the number of jumps
+	int HowManyJumps;
+
+	//The variable to control the counter of jumps
+	bool isJumping;
+
 protected:
 
 	/** Resets HMD orientation in VR. */
@@ -57,6 +63,9 @@ protected:
 
 	/** Handler for when a touch input stops. */
 	void TouchStopped(ETouchIndex::Type FingerIndex, FVector Location);
+
+	// This override the Jump function of base Character
+	virtual void Jump() override;
 
 protected:
 	// APawn interface

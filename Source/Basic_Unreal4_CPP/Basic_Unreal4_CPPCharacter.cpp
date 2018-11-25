@@ -92,6 +92,32 @@ void ABasic_Unreal4_CPPCharacter::TouchStopped(ETouchIndex::Type FingerIndex, FV
 		StopJumping();
 }
 
+void ABasic_Unreal4_CPPCharacter::Jump()
+{
+	if (CanJump())
+	{
+		HowManyJumps = 0;
+		//Call the Character Jump Function
+		Super::Jump();
+
+		UE_LOG(LogTemp, Warning, TEXT("Player can Jump!!!"));
+		HowManyJumps++;
+	}
+	else if (!CanJump() && HowManyJumps == 1)
+	{
+		//Show in Unreal LOG the message
+		UE_LOG(LogTemp, Warning, TEXT("Player is Jumping!!!"));
+		//Increment the number of jumps
+		HowManyJumps++;
+		//Increment the Height of Jump to double
+		GetCharacterMovement()->Velocity += FVector(0, 0, 1) * GetCharacterMovement()->JumpZVelocity;
+	}
+
+	FString JumpText = FString::Printf(TEXT("The Player has jumped %d times...."), HowManyJumps);
+	UE_LOG(LogTemp, Warning, TEXT("%s"), *JumpText);
+
+}
+
 void ABasic_Unreal4_CPPCharacter::TurnAtRate(float Rate)
 {
 	// calculate delta for this frame from the rate information
