@@ -8,7 +8,10 @@
 		{
 			"Name": "Basic_Unreal4_CPP",
 			"Type": "Runtime",
-			"LoadingPhase": "Default"
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"Engine"
+			]
 		}
 	]
 }
