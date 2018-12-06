@@ -26,6 +26,7 @@ void AMagicPill::BeginPlay()
 {
 	Super::BeginPlay();
 	
+	PillMesh->SetSimulatePhysics(true);
 }
 
 // Called every frame

@@ -20,15 +20,21 @@ protected:
 	virtual void BeginPlay() override;
 
 	//This is the Item to Spawn
-	UPROPERTY(EditAnyWhere, Category="Spwaning")
+	UPROPERTY(EditAnyWhere, Category="Spawning")
 		TSubclassOf<class AMagicPill> ItemToSpwan;
 
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	UFUNCTION(BlueprintPure, Category="Spawning")
+		FVector GetRandomPointInVolume();
+
 private:
 	//This is the Spawning Volume as a Box Component
 	UPROPERTY(VisibleAnyWhere, BlueprintReadOnly, Category="Spawning", meta=(AllowPrivateAccess="true"))
 		class UBoxComponent* SpawningVolume;
+
+	//This function spawns magic Pills
+	void SpawnPills();
 };
