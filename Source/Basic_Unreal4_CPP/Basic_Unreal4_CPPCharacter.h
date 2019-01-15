@@ -35,6 +35,9 @@ public:
 	//The variable to control the counter of jumps
 	bool isJumping;
 
+	UPROPERTY(VisibleAnyWhere, BlueprintReadOnly, Category=Life)
+	float DamagePoints;
+
 protected:
 
 	/** Resets HMD orientation in VR. */

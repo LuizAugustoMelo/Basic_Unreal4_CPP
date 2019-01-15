@@ -116,6 +116,19 @@ void ABasic_Unreal4_CPPCharacter::Jump()
 	FString JumpText = FString::Printf(TEXT("The Player has jumped %d times...."), HowManyJumps);
 	UE_LOG(LogTemp, Warning, TEXT("%s"), *JumpText);
 
+	/*
+	int  * JumpHeight;												//Declare a pointer variable for the Jump Height
+	JumpJeight = new int();	// (int*)malloc(sizeof(int));			//Allocates the memory for this pointer
+	*JumpHeight = 10;												//Assingns the content of this pointer
+
+	//Here we log this value of Jump Height
+	FString jumpHeightText = FString::Printf(TEXT("The player can jamp %d meters up in the air."), *JumpHeight);
+	UE_LOG(LogTemp, Warning, TEXT(%s), *jumpHeightText);
+
+	delete JumpHeight;
+
+	JumpHeight = 0;
+	*/
 }
 
 void ABasic_Unreal4_CPPCharacter::TurnAtRate(float Rate)
